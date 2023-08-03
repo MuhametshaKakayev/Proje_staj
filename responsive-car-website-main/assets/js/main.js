@@ -1,26 +1,3 @@
-<!--=============== MAIN JS ===============-->
-
-function showFeatures(event) {
-    // Tıklanan düğmenin "data-target" özelliğine göre ilgili açılır menüyü bulalım.
-    const target = event.target.getAttribute('data-target');
-    const featureContainer = document.getElementById(target);
-
-    // Eger featureContainer zaten görünür durumdaysa, görünürlüğü kaldırın, aksi takdirde görünür yapın.
-    if (featureContainer.style.display === 'block') {
-        featureContainer.style.display = 'none';
-    } else {
-        featureContainer.style.display = 'block';
-    }
-}
-
-// Tüm "featured__button" elemanlarını seçin ve tıklama olayına "showFeatures" fonksiyonunu bağlayın.
-const featuredButtons = document.querySelectorAll('.featured__button');
-featuredButtons.forEach(button => {
-    button.addEventListener('click', showFeatures);
-});
-
-
-
 /*=============== SHOW MENU ===============*/
 const navMenu = document.getElementById('nav-menu'),
     navToggle = document.getElementById('nav-toggle'),
@@ -47,7 +24,7 @@ const navLink = document.querySelectorAll('.nav__link')
 
 function linkAction() {
     const navMenu = document.getElementById('nav-menu')
-        // When we click on each nav__link, we remove the show-menu class
+    // When we click on each nav__link, we remove the show-menu class
     navMenu.classList.remove('show-menu')
 }
 navLink.forEach(n => n.addEventListener('click', linkAction))
@@ -55,9 +32,8 @@ navLink.forEach(n => n.addEventListener('click', linkAction))
 /*=============== CHANGE BACKGROUND HEADER ===============*/
 function scrollHeader() {
     const header = document.getElementById('header')
-        // When the scroll is greater than 50 viewport height, add the scroll-header class to the header tag
-    if (this.scrollY >= 50) header.classList.add('scroll-header');
-    else header.classList.remove('scroll-header')
+    // When the scroll is greater than 50 viewport height, add the scroll-header class to the header tag
+    if (this.scrollY >= 50) header.classList.add('scroll-header'); else header.classList.remove('scroll-header')
 }
 window.addEventListener('scroll', scrollHeader)
 
@@ -106,8 +82,7 @@ linkFeatured.forEach(l => l.addEventListener('click', activeFeatured))
 function scrollUp() {
     const scrollUp = document.getElementById('scroll-up');
     // When the scroll is higher than 350 viewport height, add the show-scroll class to the a tag with the scroll-top class
-    if (this.scrollY >= 350) scrollUp.classList.add('show-scroll');
-    else scrollUp.classList.remove('show-scroll')
+    if (this.scrollY >= 350) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
 }
 window.addEventListener('scroll', scrollUp)
 
@@ -140,7 +115,6 @@ const sr = ScrollReveal({
     //reset: true
 })
 
-
 sr.reveal(`.home__title, .popular__container, .features__img, .featured__filters`)
 sr.reveal(`.home__subtitle`, { delay: 500 })
 sr.reveal(`.home__elec`, { delay: 600 })
@@ -152,3 +126,50 @@ sr.reveal(`.about__data, .offer__img`, { origin: 'right' })
 sr.reveal(`.features__map`, { delay: 600, origin: 'bottom' })
 sr.reveal(`.features__card`, { interval: 300 })
 sr.reveal(`.featured__card, .logos__content, .footer__content`, { interval: 100 })
+
+/*=============== MENU JS ===============*/
+
+function toggleArticle1() {
+  const inforDiv = document.querySelector(".Tesla_1Click");
+  inforDiv.style.display = "flex";
+}
+function toggleArticle2() {
+  const inforDiv = document.querySelector(".Tesla_2Click");
+  inforDiv.style.display = "flex";
+}
+function toggleArticle3() {
+  const inforDiv = document.querySelector(".Tesla_3Click");
+  inforDiv.style.display = "flex";
+}
+function toggleArticle4() {
+  const inforDiv = document.querySelector(".Audi_1Click");
+  inforDiv.style.display = "flex";
+}
+function toggleArticle5() {
+  const inforDiv = document.querySelector(".Porsche_1Click");
+  inforDiv.style.display = "flex";
+}
+function toggleArticle6() {
+  const inforDiv = document.querySelector(".Porsche_2Click");
+  inforDiv.style.display = "flex";
+}
+function toggleArticle7() {
+  const inforDiv = document.querySelector(".BMW_1Click");
+  inforDiv.style.display = "flex";
+}
+function toggleArticle8() {
+  const inforDiv = document.querySelector(".BMW_2Click");
+  inforDiv.style.display = "flex";
+}
+
+function closeArticle() {
+  let click = [
+    ".Tesla_1Click",
+    
+  ];
+  for (let x = 0; x < click.length; x++) {
+    const inforDiv = document.querySelector(click[x]);
+    inforDiv.style.display = "none";
+    inforDiv.style.justifyContent = "center";
+  }
+}
